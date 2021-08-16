@@ -1,0 +1,57 @@
+Time complexity :O(n^2)
+Space Complexity: O(1)
+Solution:
+########################################################################
+int total=0;
+for(int i=0;i<heightSize;i++){
+        int maxleft=0,maxright=0,current=0;
+        int leftp=i,rightp=i;
+        while(leftp>=0){
+            if(maxleft<=height[leftp]) maxleft=height[leftp];
+            leftp--;
+        }
+        while(rightp<heightSize){
+            if(maxright<=height[rightp]) maxright=height[rightp];
+            rightp++;
+        }
+        current=(maxleft<maxright)?maxleft-height[i]:maxright-height[i];
+        if(current>=0) total+=current;
+        
+    }
+    return total;
+ 
+ 
+ ######################################################################
+Time complexity :O(n)
+Space Complexity: O(1)
+Solution:
+#######################################################################
+ int total=0;
+    int current;
+    int maxleft=0,maxright=0;
+    int leftp=0;
+    int rightp=heightSize-1;
+    while(leftp!=rightp){
+        if(height[leftp]<height[rightp]){
+            if(maxleft<=height[leftp]){
+                maxleft=height[leftp];
+            }
+            else{
+                current=maxleft-height[leftp];
+                total+=current;
+            }
+            leftp++;
+        }
+        else{
+            if(maxright<=height[rightp]){
+                maxright=height[rightp];
+            }
+            else{
+                current=maxright-height[rightp];
+                total+=current;
+            }
+            rightp--;
+        }
+    }
+    return total;
+}
