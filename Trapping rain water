@@ -33,9 +33,7 @@ Solution:
     int rightp=heightSize-1;
     while(leftp!=rightp){
         if(height[leftp]<height[rightp]){
-            if(maxleft<=height[leftp]){
-                maxleft=height[leftp];
-            }
+            if(maxleft<=height[leftp]) maxleft=height[leftp];
             else{
                 current=maxleft-height[leftp];
                 total+=current;
@@ -43,9 +41,7 @@ Solution:
             leftp++;
         }
         else{
-            if(maxright<=height[rightp]){
-                maxright=height[rightp];
-            }
+            if(maxright<=height[rightp]) maxright=height[rightp];
             else{
                 current=maxright-height[rightp];
                 total+=current;
